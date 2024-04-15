@@ -8,22 +8,44 @@ const loadMoreBtn = document.querySelector(".load-more");
 const lightbox = document.querySelector(".lightbox");
 const downloadImgBtn = document.querySelector(".uil-import");
 const closeImgBtn = document.querySelector(".uil-times");
+const icon = document.getElementById("icon");
+const bluspace = document.getElementById("Blustar");
+const stars = document.querySelectorAll(".stars i");
+//Switch function
+icon.onclick = function(){
+    document.body.classList.toggle("dark-theme");
+    if(document.body.classList.contains("dark-theme")){
+        icon.src="img/sun-icon.png";
+    }else{
+        icon.src="img/moon-icon.png";
+    }
+    if(document.body.classList.contains("dark-theme")){
+        bluspace.src="img/blustardarks.jpg";
+        
+    }else{
+        bluspace.src="img/Blustar.jpg";;
+    }
+}
 
-// //Switch function
-// const switchTheme = () => {
-//     const rootElem = document.documentElement
-//     // let dataTheme = rootElem.getAttribute('data-theme'),
-//     //     newTheme
-//     // new    
+//rating function
+//loop through stars onclick
+stars.forEach((star, index1) => {
+    star.addEventListener("click", () => {
+        console.log(index1 + 1);
+        alert(`ThankYou for rating Us ${index1 + 1}`);
+//loop through stars onclick
+    stars.forEach((star, index2) => {
+        //add active class onclick $ remove active on stars with higher rating
+        index1 >= index2 ? star.classList.add("active") : star.classList.remove("active") 
 
 
 
-// }
-// document.querySelector('#theme-switcher').addEventListener('click',switchTheme)
+    });
+});
+})
 
 // API key, paginations, searchTerm variables
 const apiKey = "Ugx0JkNQpSPiFQIWaCrgfQJJl1hehS9Fz5r733s95bObmKtihJXfB6hT";
-// getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`);
 const perPage = 15;
 let currentPage = 1;
 let searchTerm = null;
