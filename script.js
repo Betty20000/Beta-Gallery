@@ -20,7 +20,7 @@ icon.onclick = function(){
         icon.src="img/moon-icon.png";
     }
     if(document.body.classList.contains("dark-theme")){
-        bluspace.src="img/blustardarks.jpg";
+        bluspace.src="img/blustardarks.png";
         
     }else{
         bluspace.src="img/Blustar.jpg";;
